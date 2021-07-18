@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = {
-        value: this.props.value
+        value: this.props.counter.value
     };
 
   //  constructor() { // instead of using this we can use arrow functions
@@ -22,9 +22,7 @@ class Counter extends Component {
 
     render() {
 
-       
-
-        return ( 
+       return ( 
          <div>
             
             <span className={this.getBadgeClasses()}>
@@ -35,6 +33,10 @@ class Counter extends Component {
                 onClick={() => this.handleIncrement({id : 1}) }
                 className="btn btn-secondary btn-sm">Increment
             </button>
+            <button 
+                onClick={() => this.props.onDelete(this.props.counter)} 
+                className="btn btn-danger btn-sm m2">Delete
+                </button>
         
          </div>
         );
